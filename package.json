@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "next": "latest",
+    "openai": "^4.97.0",
     "react": "latest",
     "react-dom": "latest"
   }
