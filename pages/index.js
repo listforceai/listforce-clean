@@ -1,19 +1,19 @@
-import Head from 'next/head';
-import { useState } from 'react';
+import Head from "next/head";
+import { useState } from "react";
 
 export default function Home() {
-  const [ask, setAsk] = useState('');
-  const [response, setResponse] = useState('');
+  const [ask, setAsk] = useState("");
+  const [response, setResponse] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const res = await fetch('/api/openai-proxy', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    const res = await fetch("/api/openai-proxy", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ prompt: ask }),
     });
     const data = await res.json();
-    setResponse(data.result || 'No response');
+    setResponse(data.result || "No response");
   }
 
   return (
@@ -38,7 +38,7 @@ export default function Home() {
           >
             <input
               value={ask}
-              onChange={e => setAsk(e.target.value)}
+              onChange={(e) => setAsk(e.target.value)}
               placeholder="Ask anything (e.g., price strategy)…"
               className="flex-grow px-4 py-3 focus:outline-none"
               required
@@ -70,13 +70,13 @@ export default function Home() {
             {/* upgrade buttons */}
             <div className="mt-4 flex gap-4 justify-center">
               <button
-                onClick={() => window.location.href = '/api/checkout?price=one-time'}
+                onClick={() => (window.location.href = "/api/checkout?price=one-time")}
                 className="px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700"
               >
                 One-Time $29
               </button>
               <button
-                onClick={() => window.location.href = '/api/checkout?price=annual'}
+                onClick={() => (window.location.href = "/api/checkout?price=annual")}
                 className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
               >
                 $299/yr Unlimited
@@ -96,7 +96,7 @@ export default function Home() {
           <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
             <h3 className="text-xl font-bold mb-2">Marketing Automation</h3>
             <p className="text-gray-600">
-              Automate your email, social, and follow-up campaigns effortlessly.
+              Automate your email, social, and follow‐up campaigns effortlessly.
             </p>
           </div>
           <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
@@ -115,3 +115,4 @@ export default function Home() {
     </>
   );
 }
+
